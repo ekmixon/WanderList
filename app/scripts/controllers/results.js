@@ -25,7 +25,7 @@ angular.module('myAmericaApp')
     var state = 'VA';
     var activities = 14;
 
-    RecAreas.get({"latitude": $scope.lat, "longitude": $scope.lng, "activity" : activities}, function(results) {
+    RecAreas.get({"apikey": RIDB_API_KEY, "latitude": $scope.lat, "longitude": $scope.lng, "activity" : activities}, function(results) {
       console.log(results);
       $scope.results = results;
     });
