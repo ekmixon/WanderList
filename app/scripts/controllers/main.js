@@ -8,7 +8,7 @@
  * Controller of the myAmerica
  */
 angular.module('myAmerica')
-  .controller('MainCtrl', function ($scope, $location, $route, $routeParams, Answer, Answers, Data, DataFetch, API_URL) {
+  .controller('MainCtrl', function ($scope, $location, $route, $routeParams, RIDBapi, API_URL) {
 
 
     $scope.questions = [];
