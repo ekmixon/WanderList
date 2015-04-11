@@ -4,7 +4,8 @@ angular.module('myAmericaApp').factory('RecAreas', function($resource, RIDB_API_
   var RecArea = $resource(RIDB_API_URL  + '/recareas' + '.json');
 
   function get(params, callback) {
-  	params.push({"apikey":RIDB_API_KEY});
+  	//params.push({"apikey":RIDB_API_KEY});
+    console.log(params);
     RecArea.get(params, callback);
   }
 

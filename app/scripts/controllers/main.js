@@ -60,6 +60,8 @@ angular.module('myAmericaApp')
     };
     $scope.fullInterestsEncoded=[];
 
+
+
     $scope.firstAnswered = function(answer) {
       $scope.showSecond = true;
       $scope.answer1 = answer;
@@ -77,17 +79,20 @@ angular.module('myAmericaApp')
       //$scope.interests.forEach(logArrayElements);
 
       for (var i = 0; i < $scope.interestsList.length; i++) {
-        console.log($scope.interestsList[i]);
+        //console.log($scope.interestsList[i]);
 
         if($scope.interests[$scope.interestsList[i]]){
-          console.log($scope.interestsList[i] + " is " + $scope.interests[$scope.interestsList[i]]);
-          console.log($scope.interestsArray[$scope.interestsList[i]]);
+          //console.log($scope.interestsList[i] + " is " + $scope.interests[$scope.interestsList[i]]);
+          //console.log($scope.interestsArray[$scope.interestsList[i]]);
           $scope.fullInterestsEncoded = $scope.fullInterestsEncoded.concat($scope.interestsArray[$scope.interestsList[i]]);
         }
       }
       console.log($scope.fullInterestsEncoded);
 
       $rootScope.$broadcast('questionsAnswered', { "answer1":$scope.answer1, "answer2":$scope.answer2, "lat":$scope.coords.lat, "lng":$scope.coords.long, "interests":$scope.interests });
+      $rootScope.lat = $scope.coords.lat;
+      $rootScope.long = $scope.coords.long;
+      $rootScope.activitiesSelected = $scope.fullInterestsEncoded;
       $location.path('/results');
 
       function logArrayElements(element, index, array) {

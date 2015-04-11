@@ -8,7 +8,7 @@
  * Controller of the myAmericaApp
  */
 angular.module('myAmericaApp')
-  .controller('ResultsCtrl', function ($scope, RidbSearch, RIDB_API_KEY) {
+  .controller('ResultsCtrl', function ($scope, $rootScope, RecAreas, RIDB_API_KEY) {
 
     $scope.$on('questionsAnswered', function(event, args) {
       console.log('caught broadcast');
@@ -18,17 +18,22 @@ angular.module('myAmericaApp')
       $scope.lng = args["lng"];
       $scope.interests = args["interests"];
       console.log(age + ',' + length);
+
+      RecAreas.get({"apikey": RIDB_API_KEY, "latitude": $scope.lat, "longitude": $scope.lng, "activity" : activities}, function(results) {
+        console.log(results);
+        $scope.results = results;
+      });
       // do what you want to do
     });
 
-    var kids = false;
-    var state = 'VA';
-    var activities = 14;
 
-    RidbSearch.get({"apikey": RIDB_API_KEY, "latitude": $scope.lat, "longitude": $scope.lng, "activity" : activities}, function(results) {
+    RecAreas.get({"apikey": RIDB_API_KEY, "latitude": $rootScope.lat, "longitude": $rootScope.long, "activity" : $rootScope.activitiesSelected.toString()}, function(results) {
       console.log(results);
       $scope.results = results;
     });
+
+
+
 
 
   });
