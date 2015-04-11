@@ -1,4 +1,5 @@
 <div class="container-fluid questionsHolder">
+
 	<div class="container">
 		<div class="col-sm-12 logo">
 			<h1>Find Your National Park Adventure</h1>
@@ -38,11 +39,10 @@
 						<select ng-change="firstAnswered(firstAnswer)" ng-options="item for item in firstOptions" ng-model="firstAnswer" class="form-control m-b" name="account"></select>
 					</div>
 				</div>
-
-				<div class="row buttonHolder" align="center">
-					<button ng-click="goToResults()" class="btn recommendationButton">See Recommendations</button>
-				</div>
-			</form>
-		</div>
-	</div>
+                <div class="row buttonHolder" align="center">
+                    <button ng-click="goToResults()" class="btn recommendationButton">See Recommendations</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
