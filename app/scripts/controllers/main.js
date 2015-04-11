@@ -8,7 +8,7 @@
  * Controller of the myAmericaApp
  */
 angular.module('myAmericaApp')
-  .controller('MainCtrl', function ($scope, geolocation, $rootScope, $location, RidbSearch, RidbActivities, RIDB_API_KEY) {
+  .controller('MainCtrl', function ($scope, geolocation, $rootScope, $location, RecAreas, Activities, RIDB_API_KEY) {
 
     geolocation.getLocation().then(function(data){
       $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
@@ -52,7 +52,7 @@ angular.module('myAmericaApp')
       console.log($scope.interests);
     };
 
-    RidbActivities.get({"apikey": RIDB_API_KEY}, function(activities) {
+    RecAreas.get({"apikey": RIDB_API_KEY}, function(activities) {
       console.log(activities);
       $scope.activities = activities;
     });
