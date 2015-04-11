@@ -23,6 +23,20 @@
 					</div>
 				</div>
 
+                <div class="row mainPageRow">
+                    <div class="col-sm-3">
+                        <p>Parks near you or elsewhere?</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <button ng-hide="buttonsOff" class="btn btn-success" ng-click="buttonsOff=true">Near me</button><br>
+                        <button ng-hide="buttonsOff" class="btn btn-danger" ng-click="elsewhere=true;buttonsOff=true;">Elsewhere</button><br>
+
+                        <div ng-show="elsewhere">
+                            <select ng-model="whichState" ng-options="o as o for o in usStates"></select>
+                        </div>
+                    </div>
+                </div>
+
 				<div class="row mainPageRow">
 					<div class="col-sm-5">
 						<p>How far are you willing to travel?</p>

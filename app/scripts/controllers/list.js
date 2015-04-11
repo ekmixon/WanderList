@@ -10,11 +10,17 @@
 angular.module('myAmericaApp')
   .controller('ListCtrl', function ($scope, $rootScope, RecArea, RIDB_API_KEY) {
 
-    $scope.temp = [1560, 2564, 2581];
+    $scope.$on('parkSaved', function(event, args) {
+
+      var anyThing = args.parkId;
+      console.log('recieved:' + anyThing);
+    });
+
+    //$scope.temp = [];
 
     $scope.userList = {};
 
-    $scope.temp.forEach(getParkData);
+    $rootScope.temp.forEach(getParkData);
 
 
     function getParkData(parkId, index, array){

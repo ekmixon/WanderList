@@ -9,6 +9,7 @@
  */
 angular.module('myAmericaApp')
   .controller('ResultsCtrl', function ($scope, $rootScope, RecAreas, RIDB_API_KEY) {
+    $rootScope.temp = [];
     $scope.$on('questionsAnswered', function(event, args) {
       console.log('caught broadcast');
 	  console.log($scope);
@@ -34,6 +35,12 @@ angular.module('myAmericaApp')
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
+    $scope.savePark = function savePark(parkId) {
+      console.log(parkId);
+      $rootScope.temp.push(parkId);
+      $rootScope.$broadcast('parkSaved');
+
+    };
 
 		$(results['RECDATA']).each(function(i, v){
 			console.log(v);
