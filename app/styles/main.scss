@@ -165,6 +165,12 @@ body {
 
 .resultsView {
 	padding: 0;
+	max-height: 800px;
+
+	.sidebar, .listResults, #mapResults {
+		height: 800px;
+		overflow: scroll;
+	}
 
 	.sidebar {
 		background-color: $header-color;

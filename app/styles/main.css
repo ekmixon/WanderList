@@ -73,7 +73,11 @@ body {
       padding: 10px 15px; }
 
 .resultsView {
-  padding: 0; }
+  padding: 0;
+  max-height: 800px; }
+  .resultsView .sidebar, .resultsView .listResults, .resultsView #mapResults {
+    height: 800px;
+    overflow: scroll; }
   .resultsView .sidebar {
     background-color: #666;
     color: #FFF;
