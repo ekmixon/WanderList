@@ -2,7 +2,7 @@
 
 
 angular
-  .module('oNetApp', [
+  .module('myAmerica', [
     'angularUtils.directives.dirPagination',
     'ngAnimate',
     'ngAria',

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name oNetApp.controller:MainCtrl
+ * @name myAmerica.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the oNetApp
+ * Controller of the myAmerica
  */
-angular.module('oNetApp')
+angular.module('myAmerica')
   .controller('MainCtrl', function ($scope, $location, $route, $routeParams, Answer, Answers, Data, DataFetch, API_URL) {
 
 
