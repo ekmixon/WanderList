@@ -1,0 +1,15 @@
+development:
+  sessions:
+    default:
+      database: mydb
+      hosts:
+        - 52.0.189.54:27017
+      username: appUser
+      password: P@$$1234
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOHQ<em>URL'] %>
+      options:
+        skip_version_check: true
+        safe: true
