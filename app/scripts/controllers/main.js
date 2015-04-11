@@ -92,7 +92,6 @@ angular.module('myAmericaApp')
     };
 
     $scope.checkChange = function checkChange(status, interest){
-
       $scope.interests[interest] = status;
       console.log($scope.interests);
     };

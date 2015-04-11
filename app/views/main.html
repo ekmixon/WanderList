@@ -1,44 +1,44 @@
 <div class="container-fluid questionsHolder">
-    <div class="container">
-        <div class="col-sm-12 logo">
-            <h1>Find Your National Park Adventure</h1>
-        </div>
-        <div class="col-sm-12 col-lg-3">
-            <div class="row mainPageRow explanationHolder">
-                <p>Copy text here to introduce the user to what we're trying to get them to do on this page</p>
-            </div>
-        </div>
-        <div class="col-sm-12 col-lg-offset-1 col-lg-8">
-            <form>
-                <div class="row mainPageRow">
-                    <div class="col-sm-3">
-                        <p>What are your interests?</p>
-                    </div>
-                    <div class="col-sm-9">
-                        <ul class="interestSelectionHolder">
-                            <li ng-repeat="(interest, selected) in interests" class="interestSelection" ng-class="{'active':toggle}" ng-click="toggle = !toggle; checkChange(!selected, interest)" ng-model="activities.interest">{{interest}}</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <div class="row mainPageRow">
-                    <div class="col-sm-5">
-                        <p>How long would you like your adventure to last?</p>
-                    </div>
-                    <div class="col-sm-7">
-                        <select ng-change="secondAnswered(secondAnswer)" ng-options="item for item in secondOptions" ng-model="secondAnswer" class="form-control m-b" name="account"></select>
-                    </div>
-                </div>
+	<div class="container">
+		<div class="col-sm-12 logo">
+			<h1>Find Your National Park Adventure</h1>
+		</div>
+		<div class="col-sm-12 col-lg-3">
+			<div class="row mainPageRow explanationHolder">
+				<p>Copy text here to introduce the user to what we're trying to get them to do on this page</p>
+			</div>
+		</div>
+		<div class="col-sm-12 col-lg-offset-1 col-lg-8">
+			<form>
+				<div class="row mainPageRow">
+					<div class="col-sm-3">
+						<p>What are your interests?</p>
+					</div>
+					<div class="col-sm-9">
+						<ul class="interestSelectionHolder">
+							<li ng-repeat="(interest, selected) in interests" class="interestSelection" ng-class="{'active':toggle}" ng-click="toggle = !toggle; checkChange(!selected, interest)" ng-model="activities.interest">{{interest}}</li>
+						</ul>
+					</div>
+				</div>
 
-                <div class="row mainPageRow">
-                    <div class="col-sm-5">
-                        <p>How would you describe your age?</p>
-                    </div>
-                    <div class="col-sm-7">
-                        <select ng-change="firstAnswered(firstAnswer)" ng-options="item for item in firstOptions" ng-model="firstAnswer" class="form-control m-b" name="account"></select>
-                    </div>
-                </div>
+				<div class="row mainPageRow">
+					<div class="col-sm-5">
+						<p>How long would you like your adventure to last?</p>
+					</div>
+					<div class="col-sm-7">
+						<select ng-change="secondAnswered(secondAnswer)" ng-options="item for item in secondOptions" ng-model="secondAnswer" class="form-control m-b" name="account"></select>
+					</div>
+				</div>
 
+				<div class="row mainPageRow">
+					<div class="col-sm-5">
+						<p>How would you describe your age?</p>
+					</div>
+					<div class="col-sm-7">
+						<select ng-change="firstAnswered(firstAnswer)" ng-options="item for item in firstOptions" ng-model="firstAnswer" class="form-control m-b" name="account"></select>
+					</div>
+				</div>
                 <div class="row buttonHolder" align="center">
                     <button ng-click="goToResults()" class="btn recommendationButton">See Recommendations</button>
                 </div>
