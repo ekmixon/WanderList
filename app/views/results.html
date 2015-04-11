@@ -1,26 +1,40 @@
+<div class="container-fluid resultsView">
+	<div class="col-sm-12 col-lg-2 sidebar">
+		Filters
+	</div>
 
-<div class="container">
-<div id="accordion" class="panel-group" ng-repeat="result in results.RECDATA">
+	<div class="col-sm-12 col-lg-5 listResults">
+		<div class="col-sm-12 listResultObject" ng-repeat="result in results.RECDATA">
+			<h2>{{result.RecAreaName}}</h2>
+			<p id="{{result.RecAreaID}}" class="collapse">{{result.RecAreaDescription}}</p>
+			<div class="buttonHolder">
+				<button data-toggle="collapse" data-target="#{{result.RecAreaID}}" class="btn detailsButton">Details</button>
+				<button class="btn saveButton pull-right">Save</button>
+			</div>
+		</div>
+		<!--<div class="panel panel-default" id="panel1">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-target="#{{result.RecAreaID}}">
+						{{result.RecAreaName}}
+					</a>
+				</h4>
+			</div>
+			<div id="{{result.RecAreaID}}" class="panel-collapse collapse">
+				<div class="panel-body" ng-bind-html="result.RecAreaDescription"></div>
+				<div class="row">
+					<div class="col-sm-6">
+						<button class="btn btn-success">Save</button>
+					</div>
+					<div class="coll-sm-6">
+						<button class="btn btn-alert">Details</button>
+					</div>
+				</div>
+			</div>
+		</div>--->
+	</div>
 
-  <div class="panel panel-default" id="panel1">
-      <div class="panel-heading">
-           <h4 class="panel-title">
-      <a data-toggle="collapse" data-target="#{{result.RecAreaID}}">
-         {{result.RecAreaName}}
-      </a>
-    </h4>
-      </div>
-      <div id="{{result.RecAreaID}}" class="panel-collapse collapse">
-          <div class="panel-body" ng-bind-html="result.RecAreaDescription"></div>
-          <div class="row">
-            <div class="col-sm-6">
-              <button class="btn btn-success">Save</button>
-            </div>
-            <div class="coll-sm-6">
-              <button class="btn btn-alert">Details</button>
-            </div>
-          </div>
-      </div>
-  </div>
-</div>
+	<div class="col-sm-12 col-lg-5" id="mapResults">
+
+	</div>
 </div>
