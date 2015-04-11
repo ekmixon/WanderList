@@ -10,6 +10,7 @@
 angular.module('myAmericaApp')
   .controller('ResultsCtrl', function ($scope, $rootScope, RecAreas, RIDB_API_KEY) {
 
+
     $scope.$on('questionsAnswered', function(event, args) {
       console.log('caught broadcast');
       $scope.age = args["answer1"];
