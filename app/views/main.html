@@ -11,28 +11,22 @@
 		<div class="col-sm-12 col-lg-offset-1 col-lg-8">
 			<form>
 				<div class="row mainPageRow">
-					<div class="col-sm-5">
+					<div class="col-sm-3">
 						<p>What are your interests?</p>
 					</div>
-					<div class="col-sm-7">
+					<div class="col-sm-9">
 						<ul class="interestSelectionHolder">
-							<li class="interestSelection" ng-class="{'active':wToggle}" ng-click="wToggle = !wToggle; checkChange(activities.water, 'water')" ng-model="activities.water">Water</li>
-							<li class="interestSelection" ng-class="{'active':rToggle}" ng-click="rToggle = !rToggle; checkChange(activities.riding, 'riding')" ng-model="activities.riding">Riding</li>
-							<li class="interestSelection" ng-class="{'active':vToggle}" ng-click="vToggle = !vToggle; checkChange(activities.vistas, 'vistas')" ng-model="activities.vistas">Vistas</li>
-							<li class="interestSelection" ng-class="{'active':sToggle}" ng-click="sToggle = !sToggle; checkChange(activities.snow, 'snow')" ng-model="activities.snow">Snow</li>
-							<li class="interestSelection" ng-class="{'active':oToggle}" ng-click="oToggle = !oToggle; checkChange(activities.overnight, 'overnight')" ng-model="activities.overnight">Overnight</li>
-							<li class="interestSelection" ng-class="{'active':eToggle}" ng-click="eToggle = !eToggle; checkChange(activities.education, 'education')" ng-model="activities.education">Education</li>
-							<li class="interestSelection" ng-class="{'active':cToggle}" ng-click="cToggle = !cToggle; checkChange(activities.cliches, 'cliches')" ng-model="activities.cliches">Cliches</li>
+							<li ng-repeat="(interest, selected) in interests" class="interestSelection" ng-class="{'active':toggle}" ng-click="toggle = !toggle; checkChange(!selected, interest)" ng-model="activities.interest">{{interest}}</li>
 						</ul>
 					</div>
 				</div>
 
 				<div class="row mainPageRow">
 					<div class="col-sm-5">
-						<p>Where do you want to go?</p>
+						<p>How long would you like your adventure to last?</p>
 					</div>
 					<div class="col-sm-7">
-						<select ng-hide="showThird" ng-change="secondAnswered(secondAnswer)" ng-options="item for item in secondOptions" ng-model="secondAnswer" class="form-control m-b" name="account" ></select> {{secondAnswer}}
+						<select ng-change="secondAnswered(secondAnswer)" ng-options="item for item in secondOptions" ng-model="secondAnswer" class="form-control m-b" name="account"></select>
 					</div>
 				</div>
 
@@ -41,7 +35,7 @@
 						<p>How would you describe your age?</p>
 					</div>
 					<div class="col-sm-7">
-						<select ng-hide="showSecond" ng-change="firstAnswered(firstAnswer)" ng-options="item for item in firstOptions" ng-model="firstAnswer" class="form-control m-b" name="account" ></select> {{firstAnswer}}
+						<select ng-change="firstAnswered(firstAnswer)" ng-options="item for item in firstOptions" ng-model="firstAnswer" class="form-control m-b" name="account"></select>
 					</div>
 				</div>
 
