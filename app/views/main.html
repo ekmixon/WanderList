@@ -15,13 +15,13 @@
 						<p>What are your interests?</p>
 					</div>
 					<div class="col-sm-7">
-						Water: <input type="checkbox" ng-change="checkChange(activities.water, 'water')" ng-model="activities.water">
-						Riding: <input type="checkbox" ng-change="checkChange(activities.riding, 'riding')" ng-model="activities.riding">
-						Vistas: <input type="checkbox" ng-change="checkChange(activities.vistas, 'vistas')" ng-model="activities.vistas">
-						Snow: <input type="checkbox" ng-change="checkChange(activities.snow, 'snow')" ng-model="activities.snow">
-						Overnight: <input type="checkbox" ng-change="checkChange(activities.overnight, 'overnight')" ng-model="activities.overnight">
-						Education: <input type="checkbox" ng-change="checkChange(activities.education, 'education')" ng-model="activities.education">
-						Cliches: <input type="checkbox" ng-change="checkChange(activities.cliches, 'cliches')" ng-model="activities.cliches">
+						Water: <input type="checkbox" ng-class="{'active': activities.water}" ng-change="checkChange(activities.water, 'water')" ng-model="activities.water">
+						Riding: <input type="checkbox" ng-class="{'active': activities.riding}" ng-change="checkChange(activities.riding, 'riding')" ng-model="activities.riding">
+						Vistas: <input type="checkbox" ng-class="{'active': activities.vistas}" ng-change="checkChange(activities.vistas, 'vistas')" ng-model="activities.vistas">
+						Snow: <input type="checkbox" ng-class="{'active': activities.snow}" ng-change="checkChange(activities.snow, 'snow')" ng-model="activities.snow">
+						Overnight: <input type="checkbox" ng-class="{'active': activities.overnight}" ng-change="checkChange(activities.overnight, 'overnight')" ng-model="activities.overnight">
+						Education: <input type="checkbox" ng-class="{'active': activities.education}" ng-change="checkChange(activities.education, 'education')" ng-model="activities.education">
+						Cliches: <input type="checkbox" ng-class="{'active': activities.cliches}" ng-change="checkChange(activities.cliches, 'cliches')" ng-model="activities.cliches">
 					</div>
 				</div>
 
