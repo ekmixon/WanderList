@@ -8,7 +8,12 @@
  * Controller of the myAmericaApp
  */
 angular.module('myAmericaApp')
-  .controller('MainCtrl', function ($scope, $rootScope, $location, RidbSearch, RidbActivities, RIDB_API_KEY) {
+  .controller('MainCtrl', function ($scope, geolocation, $rootScope, $location, RidbSearch, RidbActivities, RIDB_API_KEY) {
+
+    geolocation.getLocation().then(function(data){
+      $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
+    });
+
 
     $scope.firstOptions = ['young','young at heart'];
     $scope.secondOptions = ['weekend-er', 'long-er'];
@@ -38,12 +43,11 @@ angular.module('myAmericaApp')
     };
 
     $scope.goToResults = function goToResults(){
-      $rootScope.$broadcast('questionsAnswered', { "answer1":$scope.answer1, "answer2":$scope.answer2, "lat":$scope.lat, "lng":$scope.lng, "interests":$scope.interests });
+      $rootScope.$broadcast('questionsAnswered', { "answer1":$scope.answer1, "answer2":$scope.answer2, "lat":$scope.coords.lat, "lng":$scope.coords.long, "interests":$scope.interests });
       $location.path('/results');
     };
 
     $scope.checkChange = function checkChange(status, interest){
-
       $scope.interests[interest] = status;
       console.log($scope.interests);
     };

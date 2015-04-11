@@ -4,6 +4,7 @@ angular.module('myAmericaApp').factory('Activities', function($resource, RIDB_AP
   var RidbSearch = $resource(RIDB_API_URL  + '/activities' + '.json');
 
   function get(params, callback) {
+  	params.push({"apikey":RIDB_API_KEY});
     RidbSearch.get(params, callback);
   }
 

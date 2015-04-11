@@ -15,19 +15,21 @@
 						<p>What are your interests?</p>
 					</div>
 					<div class="col-sm-7">
-						Water: <input type="checkbox" ng-change="checkChange(activities.water, 'water')" ng-model="activities.water">
-						Riding: <input type="checkbox" ng-change="checkChange(activities.riding, 'riding')" ng-model="activities.riding">
-						Vistas: <input type="checkbox" ng-change="checkChange(activities.vistas, 'vistas')" ng-model="activities.vistas">
-						Snow: <input type="checkbox" ng-change="checkChange(activities.snow, 'snow')" ng-model="activities.snow">
-						Overnight: <input type="checkbox" ng-change="checkChange(activities.overnight, 'overnight')" ng-model="activities.overnight">
-						Education: <input type="checkbox" ng-change="checkChange(activities.education, 'education')" ng-model="activities.education">
-						Cliches: <input type="checkbox" ng-change="checkChange(activities.cliches, 'cliches')" ng-model="activities.cliches">
+						<ul class="interestSelectionHolder">
+							<li class="interestSelection" ng-class="{'active':wToggle}" ng-click="wToggle = !wToggle; checkChange(activities.water, 'water')" ng-model="activities.water">Water</li>
+							<li class="interestSelection" ng-class="{'active':rToggle}" ng-click="rToggle = !rToggle; checkChange(activities.riding, 'riding')" ng-model="activities.riding">Riding</li>
+							<li class="interestSelection" ng-class="{'active':vToggle}" ng-click="vToggle = !vToggle; checkChange(activities.vistas, 'vistas')" ng-model="activities.vistas">Vistas</li>
+							<li class="interestSelection" ng-class="{'active':sToggle}" ng-click="sToggle = !sToggle; checkChange(activities.snow, 'snow')" ng-model="activities.snow">Snow</li>
+							<li class="interestSelection" ng-class="{'active':oToggle}" ng-click="oToggle = !oToggle; checkChange(activities.overnight, 'overnight')" ng-model="activities.overnight">Overnight</li>
+							<li class="interestSelection" ng-class="{'active':eToggle}" ng-click="eToggle = !eToggle; checkChange(activities.education, 'education')" ng-model="activities.education">Education</li>
+							<li class="interestSelection" ng-class="{'active':cToggle}" ng-click="cToggle = !cToggle; checkChange(activities.cliches, 'cliches')" ng-model="activities.cliches">Cliches</li>
+						</ul>
 					</div>
 				</div>
 
 				<div class="row mainPageRow">
 					<div class="col-sm-5">
-						<p>How long do you want to travel?</p>
+						<p>Where do you want to go?</p>
 					</div>
 					<div class="col-sm-7">
 						<select ng-hide="showThird" ng-change="secondAnswered(secondAnswer)" ng-options="item for item in secondOptions" ng-model="secondAnswer" class="form-control m-b" name="account" ></select> {{secondAnswer}}
