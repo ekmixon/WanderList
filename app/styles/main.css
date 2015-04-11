@@ -60,11 +60,10 @@ body {
     .questionsHolder .interestSelectionHolder .active {
       background-color: #1d7dc1;
       color: white;
-      font-weight: bold;
       border-left: 5px solid #5ea845;
-      border-right: 0;
-      border-top: 0;
-      border-bottom: 0; }
+      border-right: 1px solid #1d7dc1;
+      border-top: 1px solid #1d7dc1;
+      border-bottom: 1px solid #1d7dc1; }
   .questionsHolder .buttonHolder {
     margin: 25px 0; }
     .questionsHolder .buttonHolder .recommendationButton, .questionsHolder .buttonHolder .recommendationButton:hover, .questionsHolder .buttonHolder .recommendationButton:focus {
