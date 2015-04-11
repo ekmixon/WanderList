@@ -1,0 +1,14 @@
+<div class="" ng-include="'views/partials/header.html'"></div>
+
+<div ng-hide="showResults" ng-class="main-content">
+  <div>
+    <div ng-include="'views/partials/questions.html'"></div>
+  </div>
+  <div>
+    <div class="c" ng-include="'views/partials/content.html'"></div>
+  </div>
+</div>
+
+<div ng-show="showResults" class="container">
+    <div ng-include="'views/partials/jobs.html'"></div>
+</div>
