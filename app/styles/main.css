@@ -12,25 +12,38 @@ body {
 .top-navigation .wrapper.wrapper-content {
   padding: 36px 0 56px; }
 
+.navbar {
+  background-color: #FFF;
+  border: 0;
+  border-radius: 0;
+  color: #666; }
+
 .questionsHolder {
   background-image: url("../images/background.jpg");
   background-position: center;
-  background-repeat: no-repeat; }
-  .questionsHolder .questionRow {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0; }
+  .questionsHolder .logo {
+    text-align: center; }
+  .questionsHolder .mainPageRow {
     background-color: white;
     padding: 15px;
     font-size: 16px;
     color: #666;
-    border-left: 10px solid #1d7dc1;
+    border-left: 10px solid #5ea845;
     border-radius: 5px;
     margin-top: 25px; }
+  .questionsHolder .explanationHolder {
+    font-size: 24px;
+    border-left: 10px solid #1d7dc1; }
   .questionsHolder .buttonHolder {
     margin: 25px 0; }
     .questionsHolder .buttonHolder .recommendationButton, .questionsHolder .buttonHolder .recommendationButton:hover, .questionsHolder .buttonHolder .recommendationButton:focus {
       background-color: #1d7dc1;
       font-size: 18px;
       color: #FFF;
-      padding: 10px; }
+      padding: 15px; }
 
 .ibox {
   margin-bottom: 15px; }
@@ -561,9 +574,6 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px; }
-
   /* Remove the padding we set earlier */
   .header,
   .marketing,

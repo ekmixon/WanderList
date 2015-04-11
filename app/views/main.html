@@ -1,42 +1,52 @@
 <div class="container-fluid questionsHolder">
 	<div class="container">
-		<form>
-			<div class="row questionRow">
-				<div class="col-sm-4">
-					Age?
-				</div>
-				<div class="col-sm-8">
-					<select ng-hide="showSecond" ng-change="firstAnswered(firstAnswer)" ng-options="item for item in firstOptions" ng-model="firstAnswer" class="form-control m-b" name="account" ></select> {{firstAnswer}}
-				</div>
+		<div class="col-sm-12 logo">
+			<h1>Find Your National Park Adventure</h1>
+		</div>
+		<div class="col-sm-12 col-lg-3">
+			<div class="row mainPageRow explanationHolder">
+				<p>Copy text here to introduce the user to what we're trying to get them to do on this page</p>
 			</div>
+		</div>
+		<div class="col-sm-12 col-lg-offset-1 col-lg-8">
+			<form>
+				<div class="row mainPageRow">
+					<div class="col-sm-5">
+						<p>What are your interests?</p>
+					</div>
+					<div class="col-sm-7">
+						Water: <input type="checkbox" ng-change="checkChange(activities.water, 'water')" ng-model="activities.water">
+						Riding: <input type="checkbox" ng-change="checkChange(activities.riding, 'riding')" ng-model="activities.riding">
+						Vistas: <input type="checkbox" ng-change="checkChange(activities.vistas, 'vistas')" ng-model="activities.vistas">
+						Snow: <input type="checkbox" ng-change="checkChange(activities.snow, 'snow')" ng-model="activities.snow">
+						Overnight: <input type="checkbox" ng-change="checkChange(activities.overnight, 'overnight')" ng-model="activities.overnight">
+						Education: <input type="checkbox" ng-change="checkChange(activities.education, 'education')" ng-model="activities.education">
+						Cliches: <input type="checkbox" ng-change="checkChange(activities.cliches, 'cliches')" ng-model="activities.cliches">
+					</div>
+				</div>
 
-			<div class="row questionRow">
-				<div class="col-sm-4">
-					How long will your travels be?
+				<div class="row mainPageRow">
+					<div class="col-sm-5">
+						<p>How long do you want to travel?</p>
+					</div>
+					<div class="col-sm-7">
+						<select ng-hide="showThird" ng-change="secondAnswered(secondAnswer)" ng-options="item for item in secondOptions" ng-model="secondAnswer" class="form-control m-b" name="account" ></select> {{secondAnswer}}
+					</div>
 				</div>
-				<div class="col-sm-8">
-					<select ng-hide="showThird" ng-change="secondAnswered(secondAnswer)" ng-options="item for item in secondOptions" ng-model="secondAnswer" class="form-control m-b" name="account" ></select> {{secondAnswer}}
-				</div>
-			</div>
 
-			<div class="row questionRow">
-				<div class="col-sm-4">
-					What are your interests?
+				<div class="row mainPageRow">
+					<div class="col-sm-5">
+						<p>How would you describe your age?</p>
+					</div>
+					<div class="col-sm-7">
+						<select ng-hide="showSecond" ng-change="firstAnswered(firstAnswer)" ng-options="item for item in firstOptions" ng-model="firstAnswer" class="form-control m-b" name="account" ></select> {{firstAnswer}}
+					</div>
 				</div>
-				<div class="col-sm-8">
-					Water: <input type="checkbox" ng-change="checkChange(activities.water, 'water')" ng-model="activities.water">
-					Riding: <input type="checkbox" ng-change="checkChange(activities.riding, 'riding')" ng-model="activities.riding">
-					Vistas: <input type="checkbox" ng-change="checkChange(activities.vistas, 'vistas')" ng-model="activities.vistas">
-					Snow: <input type="checkbox" ng-change="checkChange(activities.snow, 'snow')" ng-model="activities.snow">
-					Overnight: <input type="checkbox" ng-change="checkChange(activities.overnight, 'overnight')" ng-model="activities.overnight">
-					Education: <input type="checkbox" ng-change="checkChange(activities.education, 'education')" ng-model="activities.education">
-					Cliches: <input type="checkbox" ng-change="checkChange(activities.cliches, 'cliches')" ng-model="activities.cliches">
-				</div>
-			</div>
 
-			<div class="row buttonHolder" align="center">
-				<button ng-click="goToResults()" class="btn recommendationButton">See Recommendations</button>
-			</div>
-		</form>
+				<div class="row buttonHolder" align="center">
+					<button ng-click="goToResults()" class="btn recommendationButton">See Recommendations</button>
+				</div>
+			</form>
+		</div>
 	</div>
 </div>
