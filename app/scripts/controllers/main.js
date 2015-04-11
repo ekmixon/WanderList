@@ -8,7 +8,7 @@
  * Controller of the myAmericaApp
  */
 angular.module('myAmericaApp')
-  .controller('MainCtrl', function ($scope, geolocation, $rootScope, $location, RidbSearch, RidbActivities, RIDB_API_KEY) {
+  .controller('MainCtrl', function ($scope, geolocation, $rootScope, $location, RIDB_API_KEY) {
 
     geolocation.getLocation().then(function(data){
       $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
@@ -40,12 +40,24 @@ angular.module('myAmericaApp')
       "General Outdoor Activities" ,
       "Hiking",
       "Photography" ,
-      "Rock Climbing" ,
       "Rock Climbing",
       "Visiting Cultural Sites",
       "Snow Activities",
       "Water Activities"
     ];
+
+    $scope.interestsArray = {
+      "Camping": [9, 30, 40, 42, 44],
+      "Driving/Biking": [5, 4, 18, 23],
+      "Fishing/Hunting": [11, 27, 16],
+      "General Outdoor Activities": [32, 33, 38, 39, 41, 35, 36, 37, 20, 24, 26],
+      "Hiking": [14, 28],
+      "Photography": [104],
+      "Rock Climbing": [7],
+      "Visiting Cultural Sites": [8, 10],
+      "Snow Activities": [22, 43],
+      "Water Activities": [6, 25, 31, 105, 106, 107, 34, 103, 108]
+    };
     $scope.fullInterestsEncoded=[];
 
     $scope.firstAnswered = function(answer) {
@@ -64,27 +76,23 @@ angular.module('myAmericaApp')
     $scope.goToResults = function goToResults(){
       //$scope.interests.forEach(logArrayElements);
 
-      for (var key in $scope.interests) {
-        if ($scope.interests.hasOwnProperty(key)) {
-          logArrayElements($scope.interests[key], 0, $scope.interests);
-          //alert(key + " -> " + p[key]);
+      for (var i = 0; i < $scope.interestsList.length; i++) {
+        console.log($scope.interestsList[i]);
+
+        if($scope.interests[$scope.interestsList[i]]){
+          console.log($scope.interestsList[i] + " is " + $scope.interests[$scope.interestsList[i]]);
+          console.log($scope.interestsArray[$scope.interestsList[i]]);
+          $scope.fullInterestsEncoded = $scope.fullInterestsEncoded.concat($scope.interestsArray[$scope.interestsList[i]]);
         }
       }
+      console.log($scope.fullInterestsEncoded);
 
       $rootScope.$broadcast('questionsAnswered', { "answer1":$scope.answer1, "answer2":$scope.answer2, "lat":$scope.coords.lat, "lng":$scope.coords.long, "interests":$scope.interests });
       $location.path('/results');
 
       function logArrayElements(element, index, array) {
-        var obj = {
-          "Camping": [6, 11, 25, 27, 31, 34, 105, 106, 107, 108],
-          "Driving/Biking": [4, 5, 18, 23, 15, 109],
-          "vistas": [26, 28, 104, 39],
-          "snow": [22, 43],
-          "resort": [40],
-          "overnight": [9, 30, 40, 42],
-          "education": [8, 33, 41, 103],
-          "cliches": [7, 14, 20, 16]
-        };
+        console.log(element);
+
 
         $scope.fullInterestsEncoded = $scope.fullInterestsEncoded.concat(obj[element]);
         console.log($scope.fullInterestsEncoded);
@@ -97,10 +105,10 @@ angular.module('myAmericaApp')
     };
 
 
-
-    RidbActivities.get({"apikey": RIDB_API_KEY}, function(activities) {
-      console.log(activities);
-      $scope.activities = activities;
-    });
+    //
+    //RidbActivities.get({"apikey": RIDB_API_KEY}, function(activities) {
+    //  console.log(activities);
+    //  $scope.activities = activities;
+    //});
 
   });
