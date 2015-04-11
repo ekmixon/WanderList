@@ -94,6 +94,11 @@ body {
 	.logo {
 		text-align: center;
 		font-size: 32px;
+
+		h1 {
+			margin-top: 15px;
+			margin-bottom: 5px;
+		}
 	}
 
 	.mainPageRow {
@@ -129,6 +134,7 @@ body {
 			padding: 10px;
 			margin: 0 10px 10px 0;
 			text-decoration: none;
+			user-select: none;
 		}
 
 		.active{
