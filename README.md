@@ -28,7 +28,7 @@ npm install grunt -g
 npm install grunt-cli -g
 ```
 
-4.) Install compass ruby gem
+4.) Install compass ruby gem (Depending on how your ruby is installed, this may require root).
 ``` bash
 gem install compass
 ```
@@ -48,6 +48,26 @@ bower install
 ``` bash
 grunt serve
 ```
+
+## Helpful Tips
+
+1.) If you are having problems running bower install, check to make sure the git protocol is not blocked by your firewall.  To configure the default to use https instead of the git protocol, use the following commands:
+
+To change set https as default:
+``` bash
+git config --global url."https://".insteadOf git://
+```
+
+To undo global configs:
+``` bash
+git config --global --unset
+```
+
+2.) If you are experiencing errors, the following commands are helpful to resetting your environment.
+
+* Delete the node modules directory in your project root
+* Clean your npm cache with → sudo npm cache clean
+* Reinstall with super user privileges → sudo npm install
 
 ##License
 
