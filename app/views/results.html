@@ -1,26 +1,40 @@
+<div class="container-fluid resultsView">
+	<div class="col-sm-12 col-lg-2 sidebar">
+		Filters
+	</div>
 
-<div class="container">
-<div id="accordion" class="panel-group" ng-repeat="result in results.RECDATA">
+	<div class="col-sm-12 col-lg-5 listResults">
+		<div class="col-sm-12 listResultObject" ng-repeat="result in results.RECDATA">
+			<h2>{{result.RecAreaName}}</h2>
+			<p id="{{result.RecAreaID}}" class="collapse">{{result.RecAreaDescription}}</p>
+			<div class="buttonHolder">
+				<button class="btn detailsButton" data-toggle="modal" data-target="#myModal">Details</button>
+				<button ng-click="savePark(result.RecAreaID)" class="btn saveButton pull-right">Save</button>
+			</div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">{{result.RecAreaName}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            {{result.RecAreaDescription}}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
 
-  <div class="panel panel-default" id="panel1">
-      <div class="panel-heading">
-           <h4 class="panel-title">
-      <a data-toggle="collapse" data-target="#{{result.RecAreaID}}">
-         {{result.RecAreaName}}
-      </a>
-    </h4>
-      </div>
-      <div id="{{result.RecAreaID}}" class="panel-collapse collapse">
-          <div class="panel-body" ng-bind-html="result.RecAreaDescription"></div>
-          <div class="row">
-            <div class="col-sm-6">
-              <button class="btn btn-success">Save</button>
-            </div>
-            <div class="coll-sm-6">
-              <button class="btn btn-alert">Details</button>
-            </div>
-          </div>
-      </div>
-  </div>
+	</div>
+
+	<div class="col-sm-12 col-lg-5" id="mapResults">
+
+	</div>
 </div>
-</div>
+

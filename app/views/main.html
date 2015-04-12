@@ -2,11 +2,12 @@
 
 	<div class="container">
 		<div class="col-sm-12 logo">
-			<h1>Find Your National Park Adventure</h1>
+			<h1>WanderList: Find Your National Park Adventure</h1>
 		</div>
 		<div class="col-sm-12 col-lg-3">
 			<div class="row mainPageRow explanationHolder">
-				<p>Copy text here to introduce the user to what we're trying to get them to do on this page</p>
+				<p><strong>WanderList</strong> is a easy way to create lists of your outdoor adventures.<br /><br /> It allows you to search,
+					create, share your own curated lists that highlight your favorite parks into <strong>WanderLists</strong>.</p>
 			</div>
 		</div>
 		<div class="col-sm-12 col-lg-offset-1 col-lg-8">
@@ -22,23 +23,29 @@
 					</div>
 				</div>
 
+                <div class="row mainPageRow">
+                    <div class="col-sm-3">
+                        <p>Parks near you or elsewhere?</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <button ng-hide="buttonsOff" class="btn btn-success" ng-click="buttonsOff=true">Near me</button><br>
+                        <button ng-hide="buttonsOff" class="btn btn-danger" ng-click="elsewhere=true;buttonsOff=true;">Elsewhere</button><br>
+
+                        <div ng-show="elsewhere">
+                            <select ng-model="whichState" ng-options="o as o for o in usStates"></select>
+                        </div>
+                    </div>
+                </div>
+
 				<div class="row mainPageRow">
 					<div class="col-sm-5">
-						<p>How long would you like your adventure to last?</p>
+						<p>How far are you willing to travel?</p>
 					</div>
 					<div class="col-sm-7">
 						<select ng-change="secondAnswered(secondAnswer)" ng-options="item for item in secondOptions" ng-model="secondAnswer" class="form-control m-b" name="account"></select>
 					</div>
 				</div>
 
-				<div class="row mainPageRow">
-					<div class="col-sm-5">
-						<p>How would you describe your age?</p>
-					</div>
-					<div class="col-sm-7">
-						<select ng-change="firstAnswered(firstAnswer)" ng-options="item for item in firstOptions" ng-model="firstAnswer" class="form-control m-b" name="account"></select>
-					</div>
-				</div>
                 <div class="row buttonHolder" align="center">
                     <button ng-click="goToResults()" class="btn recommendationButton">See Recommendations</button>
                 </div>
