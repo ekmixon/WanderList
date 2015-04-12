@@ -297,7 +297,7 @@ angular.module('myAmericaApp')
         });
       }
       else{
-        $rootScope.state = $scope.whichState;
+        $rootScope.state = $scope.whichState.stateAbbr;
         $rootScope.$broadcast('questionsAnswered', {
           "answer1": $scope.answer1,
           "answer2": $scope.answer2,

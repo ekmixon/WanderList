@@ -39,7 +39,6 @@ angular.module('myAmericaApp')
         }).addTo(map);
 
         $scope.savePark = function savePark(parkId) {
-          console.log(parkId);
           $rootScope.temp.push(parkId);
           $rootScope.$broadcast('parkSaved');
           console.log('sending to api');
@@ -49,28 +48,30 @@ angular.module('myAmericaApp')
         };
 
         $(results['RECDATA']).each(function(i, v){
-          var title = v.RecAreaName;
-          var contactEmail = v.RecAreaEmail;
-          var contactPhone = v.RecAreaPhone;
+		  if (v.RecAreaLatitude != "" && v.RecAreaLongitude != ""){
+			  var title = v.RecAreaName;
+			  var contactEmail = v.RecAreaEmail;
+			  var contactPhone = v.RecAreaPhone;
 
-          var popUpText = "<strong>" + title + "</strong>";
+			  var popUpText = "<strong>" + title + "</strong>";
 
-          if (contactEmail != ""){
-            popUpText = popUpText + "<p>" + contactEmail + "</p>";
-          }
+			  if (contactEmail != ""){
+				popUpText = popUpText + "<p>" + contactEmail + "</p>";
+			  }
 
-          if (contactPhone != ""){
-            popUpText = popUpText + "<p>" + contactPhone + "</p>";
-          }
+			  if (contactPhone != ""){
+				popUpText = popUpText + "<p>" + contactPhone + "</p>";
+			  }
 
           v.photoQuery("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG("+v.RecAreaLatitude+","+ v.RecAreaLongitude+"), 50000))");
           v.photoData = Flickr.get({key:"AIzaSyAY3kjup98kSZ5OQ4iaxFRxWqwvtLLXfPM", sql: v.photoQuery}, function(results){
 
           });
 
-          L.marker([v.RecAreaLatitude, v.RecAreaLongitude]).addTo(map)
-            .bindPopup(popUpText)
-            .openPopup();
+			  L.marker([v.RecAreaLatitude, v.RecAreaLongitude]).addTo(map)
+				.bindPopup(popUpText)
+				.openPopup();
+		  }
         });
 
         $scope.results = results;
