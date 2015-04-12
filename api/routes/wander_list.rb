@@ -41,9 +41,9 @@ module Sinatra
             if UserList.where(:user_id => userId, :park_id => parkId).exists? then
               UserList.where(:user_id => userId, :park_id => parkId)
                 .update_all(:completed => 'Y')
-              return '{}'
+              return {'status' => 'success'}.to_json
             else
-              return '{failure}'
+              return {'status' => 'failure'}.to_json
             end
             
           end
@@ -55,9 +55,9 @@ module Sinatra
             if UserList.where(:user_id => userId, :park_id => parkId).exists? then
               UserList.where(:user_id => userId, :park_id => parkId)
                 .update_all(:completed => 'N')
-              return '{}'
+              return {'status' => 'success'}.to_json
             else
-              return '{failure}'
+              return {'status' => 'failure'}.to_json
             end
             
           end
