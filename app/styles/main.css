@@ -80,7 +80,7 @@ body {
       background-color: #FFF;
       color: #666;
       padding: 10px 15px; }
-    .questionsHolder .buttonHolder .active, .questionsHolder .buttonHolder .active:hover, .questionsHolder .buttonHolder .inactive:focus {
+    .questionsHolder .buttonHolder .active, .questionsHolder .buttonHolder .active:hover, .questionsHolder .buttonHolder .active:focus {
       background-color: #1d7dc1;
       color: #FFF;
       padding: 10px 15px; }
@@ -96,6 +96,12 @@ body {
     .resultsView .sidebar, .resultsView .listResults, .resultsView #mapResults {
       min-height: 300px;
       overflow: scroll; } }
+  .resultsView .pageTitle {
+    text-align: center;
+    background-color: #5ea845;
+    color: #FFF; }
+    .resultsView .pageTitle h1 {
+      margin-bottom: 20px; }
   .resultsView .sidebar {
     background-color: #666;
     color: #FFF;
@@ -114,7 +120,8 @@ body {
       border-radius: 5px;
       margin-bottom: 20px; }
       .resultsView .listResults .listResultObject h2 {
-        margin-top: 0px; }
+        margin-top: 0px;
+        font-size: 24px; }
       .resultsView .listResults .listResultObject p {
         font-size: 12px; }
       .resultsView .listResults .listResultObject .detailsButton, .resultsView .listResults .listResultObject .saveButton {
