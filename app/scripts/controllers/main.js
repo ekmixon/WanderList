@@ -77,6 +77,7 @@ angular.module('myAmericaApp')
     };
 
     $scope.goToResults = function goToResults(){
+
       for (var i = 0; i < $scope.interestsList.length; i++) {
 
         if($scope.interests[$scope.interestsList[i]]){
@@ -84,7 +85,25 @@ angular.module('myAmericaApp')
         }
       }
 
-      $rootScope.$broadcast('questionsAnswered', { "answer1":$scope.answer1, "answer2":$scope.answer2, "lat":$scope.coords.lat, "lng":$scope.coords.lng, "interests":$scope.interests });
+      if(!$scope.elsewhere) {
+        $rootScope.$broadcast('questionsAnswered', {
+          "answer1": $scope.answer1,
+          "answer2": $scope.answer2,
+          "lat": $scope.coords.lat,
+          "lng": $scope.coords.lng,
+          "interests": $scope.interests
+        });
+      }
+      else{
+        $rootScope.state = $scope.whichState;
+        $rootScope.$broadcast('questionsAnswered', {
+          "answer1": $scope.answer1,
+          "answer2": $scope.answer2,
+          "state": $scope.whichState,
+          "interests": $scope.interests
+        });
+      }
+
       $rootScope.lat = $scope.coords.lat;
       $rootScope.lng = $scope.coords.lng;
       $rootScope.activitiesSelected = $scope.fullInterestsEncoded;
