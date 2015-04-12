@@ -33,30 +33,36 @@
 				</div>
 
                 <div class="row mainPageRow">
-                    <div class="col-sm-3">
-                        <p>Parks near you or elsewhere?</p>
+                    <div class="col-sm-5">
+                        <p>Where would you like to adventure?</p>
                     </div>
-                    <div class="col-sm-9">
-                        <button ng-hide="buttonsOff" class="btn btn-success" ng-click="buttonsOff=true">Near me</button><br>
-                        <button ng-hide="buttonsOff" class="btn btn-danger" ng-click="elsewhere=true;buttonsOff=true;">Elsewhere</button><br>
-
-                        <div ng-show="elsewhere">
-                            <select ng-model="whichState" ng-options="o as o for o in usStates"></select>
-                        </div>
+                    <div class="col-sm-7">
+						<ul class="interestSelectionHolder secondOptions">
+							<li ng-repeat="(radius, selected) in secondOptions" class="interestSelection" ng-class="activeChoice[$index]" ng-click="showThird(radius, $index)">{{radius}}</li>
+						</ul>
                     </div>
                 </div>
 
-				<div class="row mainPageRow">
+				<div class="row mainPageRow ng-hide" ng-show="elsewhere">
+					<div class="col-sm-5">
+						<p>Which state?</p>
+					</div>
+					<div class="col-sm-7">
+						<select ng-change="thirdAnswered(whichState)" ng-model="whichState" class="form-control m-b" ng-options="o as o.stateName for o in usStates"></select>
+					</div>
+				</div>
+
+				<div class="row mainPageRow ng-hide" ng-show="nearMe">
 					<div class="col-sm-5">
 						<p>How far are you willing to travel?</p>
 					</div>
 					<div class="col-sm-7">
-						<select ng-change="secondAnswered(secondAnswer)" ng-options="item for item in secondOptions" ng-model="secondAnswer" class="form-control m-b" name="account"></select>
+						<select ng-change="thirdAnswered(secondAnswer)" ng-options="item for item in thirdOptions" ng-model="secondAnswer" class="form-control m-b" name="account"></select>
 					</div>
 				</div>
 
                 <div class="row buttonHolder" align="center">
-                    <button ng-click="goToResults()" class="btn recommendationButton">See Recommendations</button>
+                    <button ng-click="goToResults()" ng-class="submitButtonClass" class="btn recommendationButton">See Recommendations</button>
                 </div>
             </form>
         </div>

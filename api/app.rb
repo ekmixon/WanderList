@@ -1,6 +1,6 @@
 require 'sinatra/base'
-
-require_relative 'routes/questions'
+require 'mongoid'
+require_relative 'routes/wander_list'
 
 
 class SimpleApp < Sinatra::Base
@@ -11,19 +11,20 @@ class SimpleApp < Sinatra::Base
   enable :logging
 
   # produces a log file and a pipe to stdout
-  file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
+  file = File.new("log/#{settings.environment}.log", 'a+')
   file.sync = true
 
   configure do
     use Rack::CommonLogger, file
-    # Mongoid.load!("./mongoid.yml")
-    # require 'mongoid'
+    Mongoid.load!("./mongoid.yml")
+    require 'mongoid'
   end
 
-  register Sinatra::SampleApp::Routing::Questions
+  register Sinatra::SampleApp::Routing::WanderList
 
   before do
-    enable_global_headers
+    content_type :json
+    response.headers['Access-Control-Allow-Origin'] = '*'
   end
 
   options '/*' do

@@ -12,14 +12,200 @@ angular.module('myAmericaApp')
 
     geolocation.getLocation().then(function(data){
       $scope.coords = {lat:data.coords.latitude, lng:data.coords.longitude};
-		console.log($scope.coords.lat);
     });
 
-    $scope.usStates = ["AL","AK","AS","AZ","AR","CA","CO","CT","DE","DC","FM","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MH","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","MP","OH","OK","OR","PW","PA","PR","RI","SC","SD","TN","TX","UT","VT","VI","VA","WA","WV","WI","WY","AE","AA","AP"];
+    $scope.usStates = [{
+		"stateName": "Alabama",
+		"stateAbbr": "AL"
+	},{
+		"stateName": "Alaksa",
+		"stateAbbr": "AK"
+	},{
+		"stateName": "American Samoa",
+		"stateAbbr": "AS"
+	},{
+		"stateName": "Arizona",
+		"stateAbbr": "AZ"
+	},{
+		"stateName": "Arkansas",
+		"stateAbbr": "AR"
+	},{
+		"stateName": "California",
+		"stateAbbr": "CA"
+	},{
+		"stateName": "Colorado",
+		"stateAbbr": "CO"
+	},{
+		"stateName": "Connecticut",
+		"stateAbbr": "CT"
+	},{
+		"stateName": "Delaware",
+		"stateAbbr": "DE"
+	},{
+		"stateName": "District of Columbia",
+		"stateAbbr": "DC"
+	},{
+		"stateName": "Federated States of Micronesia",
+		"stateAbbr": "FM"
+	},{
+		"stateName": "Florida",
+		"stateAbbr": "FL"
+	},{
+		"stateName": "Georgia",
+		"stateAbbr": "GA"
+	},{
+		"stateName": "Guam",
+		"stateAbbr": "GU"
+	},{
+		"stateName": "Hawaii",
+		"stateAbbr": "HI"
+	},{
+		"stateName": "Idaho",
+		"stateAbbr": "ID"
+	},{
+		"stateName": "Illinois",
+		"stateAbbr": "IL"
+	},{
+		"stateName": "Indiana",
+		"stateAbbr": "IN"
+	},{
+		"stateName": "Iowa",
+		"stateAbbr": "IA"
+	},{
+		"stateName": "Kansas",
+		"stateAbbr": "KS"
+	},{
+		"stateName": "Kentucky",
+		"stateAbbr": "KY"
+	},{
+		"stateName": "Louisiana",
+		"stateAbbr": "LA"
+	},{
+		"stateName": "Maine",
+		"stateAbbr": "ME"
+	},{
+		"stateName": "Marshall Islands",
+		"stateAbbr": "MH"
+	},{
+		"stateName": "Maryland",
+		"stateAbbr": "MD"
+	},{
+		"stateName": "Massachusetts",
+		"stateAbbr": "MA"
+	},{
+		"stateName": "Michigan",
+		"stateAbbr": "MI"
+	},{
+		"stateName": "Minnesota",
+		"stateAbbr": "MN"
+	},{
+		"stateName": "Mississippi",
+		"stateAbbr": "MS"
+	},{
+		"stateName": "Missouri",
+		"stateAbbr": "MO"
+	},{
+		"stateName": "Montana",
+		"stateAbbr": "MT"
+	},{
+		"stateName": "Nebraska",
+		"stateAbbr": "NE"
+	},{
+		"stateName": "Nevada",
+		"stateAbbr": "NV"
+	},{
+		"stateName": "New Hampshire",
+		"stateAbbr": "NH"
+	},{
+		"stateName": "New Jersey",
+		"stateAbbr": "NJ"
+	},{
+		"stateName": "New Mexico",
+		"stateAbbr": "NM"
+	},{
+		"stateName": "New York",
+		"stateAbbr": "NY"
+	},{
+		"stateName": "North Carolina",
+		"stateAbbr": "NC"
+	},{
+		"stateName": "North Dakota",
+		"stateAbbr": "ND"
+	},{
+		"stateName": "Northern Mariana Islands",
+		"stateAbbr": "MP"
+	},{
+		"stateName": "Ohio",
+		"stateAbbr": "OH"
+	},{
+		"stateName": "Oklahoma",
+		"stateAbbr": "OK"
+	},{
+		"stateName": "Oregon",
+		"stateAbbr": "OR"
+	},{
+		"stateName": "Palau",
+		"stateAbbr": "PW"
+	},{
+		"stateName": "Pennsylvania",
+		"stateAbbr": "PA"
+	},{
+		"stateName": "Puerto Rico",
+		"stateAbbr": "PR"
+	},{
+		"stateName": "Rhode Island",
+		"stateAbbr": "RI"
+	},{
+		"stateName": "South Carolina",
+		"stateAbbr": "SC"
+	},{
+		"stateName": "South Dakota",
+		"stateAbbr": "SD"
+	},{
+		"stateName": "Tennessee",
+		"stateAbbr": "TN"
+	},{
+		"stateName": "Texas",
+		"stateAbbr": "TX"
+	},{
+		"stateName": "Utah",
+		"stateAbbr": "UT"
+	},{
+		"stateName": "Vermont",
+		"stateAbbr": "VT"
+	},{
+		"stateName": "Virgin Islands",
+		"stateAbbr": "VI"
+	},{
+		"stateName": "Virginia",
+		"stateAbbr": "VA"
+	},{
+		"stateName": "Washington",
+		"stateAbbr": "WA"
+	},{
+		"stateName": "West Virginia",
+		"stateAbbr": "WV"
+	},{
+		"stateName": "Wisconsin",
+		"stateAbbr": "WI"
+	},{
+		"stateName": "Wyoming",
+		"stateAbbr": "WY"
+	}];
 
+    $scope.secondOptions = {
+		'Near me': false,
+		'Out of state': false
+	};
 
-    $scope.firstOptions = ['Young','Young at heart'];
-    $scope.secondOptions = ['Short (a few days)', 'Long (a week or more)'];
+	$scope.submitButtonClass = 'inactive';
+
+	$scope.thirdOptions = ['Up to 50 miles', 'Up to 100 miles', 'More than 100 miles'];
+
+	$scope.activeChoice = [];
+	$scope.nearMe = false;
+	$scope.elsewhere = false;
+
     $scope.lat = 37.431573;
     $scope.lng = -78.656894;
     $scope.interests = {
@@ -70,11 +256,27 @@ angular.module('myAmericaApp')
       // totalQuery["answer1"] = answer;
     };
 
-    $scope.secondAnswered = function(answer) {
-      $scope.showThird = true;
+    $scope.thirdAnswered = function(answer) {
       $scope.answer2 = answer;
       var firstAnswer = {"questionId": "1", "selectedOption": answer, "email": $('#email').val()};
+	  $scope.submitButtonClass = 'active';
     };
+
+	$scope.showThird = function(radius, id){
+		for (var i = 0; i < $scope.activeChoice.length; i++){
+			$scope.activeChoice[i] = '';
+		}
+
+		$scope.activeChoice[id] = $scope.activeChoice[id] == 'active' ? '' : 'active';
+
+		if (radius === 'Near me'){
+			$scope.nearMe = true;
+			$scope.elsewhere = false;
+		} else if (radius === 'Out of state'){
+			$scope.nearMe = false;
+			$scope.elsewhere = true;
+		}
+	};
 
     $scope.goToResults = function goToResults(){
       $rootScope.email = $scope.email;
