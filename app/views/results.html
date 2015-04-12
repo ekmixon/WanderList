@@ -8,7 +8,7 @@
 			<p id="{{result.RecAreaID}}" class="collapse">{{result.RecAreaDescription}}</p>
 			<div class="buttonHolder">
 				<button class="btn detailsButton" data-toggle="modal" data-target="#myModal{{$index}}">Details</button>
-				<button ng-click="savePark(result.RecAreaID)" class="btn saveButton pull-right">Save</button>
+				<button ng-click="savePark(result.RecAreaID)" class="btn saveButton pull-right">Add to My WanderList</button>
 			</div>
             <!-- Modal -->
             <div class="modal fade" id="myModal{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

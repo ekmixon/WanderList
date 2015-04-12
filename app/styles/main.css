@@ -90,7 +90,7 @@ body {
   max-height: 800px; }
   @media (min-width: 768px) {
     .resultsView .sidebar, .resultsView .listResults, .resultsView #mapResults {
-      height: 800px;
+      height: 600px;
       overflow: scroll; } }
   @media (max-width: 767px) {
     .resultsView .sidebar, .resultsView .listResults, .resultsView #mapResults {
@@ -124,6 +124,11 @@ body {
         font-size: 24px; }
       .resultsView .listResults .listResultObject p {
         font-size: 12px; }
+      .resultsView .listResults .listResultObject .completedCheckbox {
+        font-size: 16px;
+        margin: 10px auto; }
+        .resultsView .listResults .listResultObject .completedCheckbox label {
+          margin-right: 5px; }
       .resultsView .listResults .listResultObject .detailsButton, .resultsView .listResults .listResultObject .saveButton {
         color: #FFF;
         padding: 10px 15px;

@@ -197,7 +197,7 @@ body {
 
 	@media (min-width: 768px) {
 		.sidebar, .listResults, #mapResults {
-			height: 800px;
+			height: 600px;
 			overflow: scroll;
 		}
 	}
@@ -243,10 +243,20 @@ body {
 			h2 {
 				margin-top: 0px;
 				font-size: 24px;
+
 			}
 
 			p {
 				font-size: 12px;
+			}
+
+			.completedCheckbox {
+				font-size: 16px;
+				margin: 10px auto;
+
+				label {
+					margin-right: 5px;
+				}
 			}
 
 			.detailsButton, .saveButton {

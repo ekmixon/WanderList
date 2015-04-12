@@ -5,6 +5,10 @@
     <div class="col-sm-12 col-lg-6 listResults">
         <div class="col-sm-12 listResultObject" ng-repeat="park in userList">
             <h2>{{park.RecAreaName}}</h2>
+			<div class="completedCheckbox">
+				<label for="listElement{{$index}}">Completed:</label>
+				<input id="listElement{{$index}}" type="checkbox"/>
+			</div>
             <p id="{{park.RecAreaID}}" class="collapse">{{park.RecAreaDescription}}</p>
             <div class="buttonHolder">
                 <button data-toggle="collapse" data-target="#{{park.RecAreaID}}" class="btn detailsButton">Details</button>
