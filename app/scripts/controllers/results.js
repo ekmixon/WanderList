@@ -30,6 +30,8 @@ angular.module('myAmericaApp')
       // do what you want to do
     });
 
+	$scope.pictures = [];
+
 	$scope.createMap = function(results){
 		var map = L.map('mapResults').setView([$scope.lat, $scope.lng], 10);
 
@@ -82,6 +84,8 @@ angular.module('myAmericaApp')
 		$scope.createMap(results);
 
 		$scope.results = results;
+
+		$scope.getPics();
       });
     }
     else{
@@ -97,7 +101,34 @@ angular.module('myAmericaApp')
 
         $scope.results = results;
 
+		$scope.getPics();
       });
     }
 
+	$scope.getPics = function() {
+		console.log('in getPics');
+		var len = $scope.results["RECDATA"].length;
+		console.log($scope.results["RECDATA"]);
+		$scope.i = 0;
+
+		while($scope.i < $scope.results["RECDATA"].length){
+			console.log($scope.i);
+			var lat = $scope.results["RECDATA"][$scope.i].RecAreaLatitude;
+			var lng = $scope.results["RECDATA"][$scope.i].RecAreaLongitude;
+			var parkId = $scope.results["RECDATA"][$scope.i].RecAreaID;
+			console.log('lat:'+lat+",lng:"+lng +", at:" + parkId);
+			var photoQuery = ("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG(" + lat + "," + lng + "), 50000))");
+			console.log(photoQuery);
+			Flickr.get({key: "AIzaSyAY3kjup98kSZ5OQ4iaxFRxWqwvtLLXfPM", sql: photoQuery}, function (results) {
+				var photoData = JSON.parse(results.rows[0][0]).url_m;
+				console.log(photoData + " at " + parkId);
+				$scope.pictures.push(photoData);
+				console.log($scope.pictures);
+			});
+
+			$scope.i++;
+
+		}
+		$scope.$apply();
+	}
   });
