@@ -14,12 +14,12 @@ Visit https://github.com/creationix/nvm site for the latest instructions.
 curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
 ```
 
-2.) Install node using this command.
+2.) Install node.
 ``` bash 
 nvm install stable
 ```
 
-3.) Install grunt using this command.
+3.) Install the required node modules.
 ``` bash
 npm install nodejs -g
 npm install bower -g
@@ -28,12 +28,12 @@ npm install grunt -g
 npm install grunt-cli -g
 ```
 
-4.) Install compass
+4.) Install compass ruby gem
 ``` bash
 gem install compass
 ```
 
-5.) Clone the repos
+5.) Clone the git repos
 ```bash
 git clone https://github.com/booz-allen-agile-delivery/myAmerica
 ```
