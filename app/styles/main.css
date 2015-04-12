@@ -7,7 +7,7 @@ $h5-aside-font-size: 1.125rem;
 $h6-aside-font-size: 1rem;
 */
 body {
-  background-color: #f3f3f4; }
+  background-color: #FFF; }
 
 .top-navigation .wrapper.wrapper-content {
   padding: 36px 0 56px; }
@@ -17,9 +17,11 @@ body {
   border: 0;
   border-radius: 0;
   color: #666; }
+  .navbar .navbar-brand img {
+    height: 20px; }
 
 .questionsHolder {
-  background: url("../images/background.jpg") center top no-repeat, url("../images/background2.jpg") no-repeat;
+  background: url("../images/background.jpg") center top no-repeat;
   margin: 0;
   padding: 0; }
   .questionsHolder .logo {
@@ -37,6 +39,8 @@ body {
     border-radius: 5px;
     margin-top: 15px; }
     .questionsHolder .mainPageRow p {
+      margin-bottom: 0; }
+    .questionsHolder .mainPageRow .secondOptions li {
       margin-bottom: 0; }
   .questionsHolder .explanationHolder {
     font-size: 18px;
@@ -57,7 +61,7 @@ body {
       border-top: 1px solid #5ea845;
       border-bottom: 1px solid #5ea845;
       border-radius: 3px;
-      padding: 10px;
+      padding: 5px 10px;
       margin: 0 10px 10px 0;
       text-decoration: none;
       user-select: none; }
@@ -67,8 +71,13 @@ body {
   .questionsHolder .buttonHolder {
     margin: 15px 0; }
     .questionsHolder .buttonHolder .recommendationButton, .questionsHolder .buttonHolder .recommendationButton:hover, .questionsHolder .buttonHolder .recommendationButton:focus {
+      font-size: 18px; }
+    .questionsHolder .buttonHolder .inactive, .questionsHolder .buttonHolder .inactive:hover, .questionsHolder .buttonHolder .inactive:focus {
+      background-color: #FFF;
+      color: #666;
+      padding: 10px 15px; }
+    .questionsHolder .buttonHolder .active, .questionsHolder .buttonHolder .active:hover, .questionsHolder .buttonHolder .inactive:focus {
       background-color: #1d7dc1;
-      font-size: 18px;
       color: #FFF;
       padding: 10px 15px; }
 
@@ -106,5 +115,16 @@ body {
         background-color: #1d7dc1; }
   .resultsView .mapResults {
     padding: 20px; }
+
+.footer {
+  padding: 20px auto;
+  background-color: #FFF;
+  text-align: center; }
+  .footer p {
+    font-size: 14px;
+    margin: 30px auto; }
+  .footer a, .footer a:hover, .footer a:focus {
+    color: #1d7dc1;
+    font-weight: bold; }
 
 /*# sourceMappingURL=main.css.map */
