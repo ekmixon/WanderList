@@ -15,9 +15,14 @@ module Sinatra
             
             if userId != nil && parkId != nil then
               UserList.new({:user_id => userId, :park_id => parkId}).insert
-              return 'success'
+              
+              # parks = UserList.where(:user_id => userId).(:park_id)
+              # UserList.where(:user_id.ne => userId).distinct(:user_id)
+#               
+              # puts UserList.not.where(:park_id.in => parks).and.where(:user_id.ne => userId).to_a.to_json
+              return '[]'
             else
-              return 'failure'
+              return '[failure]'
             end
           end
           
@@ -27,9 +32,9 @@ module Sinatra
             parkId = bparams['parkId']
             if userId != nil && parkId != nil then
               UserList.where(:user_id => userId, :park_id => parkId).delete
-              return 'success'
+              return '[]'
             else
-              return 'failure'
+              return '[failure]'
             end
             
           end
