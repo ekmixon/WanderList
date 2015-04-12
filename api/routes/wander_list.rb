@@ -11,7 +11,7 @@ module Sinatra
           add_list = lambda do
             bparams = JSON.parse(request.body.read)
             userId = bparams['userId']
-            parkId = bParams['parkId']
+            parkId = bparams['parkId']
             
             if userId != nil && parkId != nil then
               UserList.new({:user_id => userId, parkId => '1234'}).insert
@@ -24,7 +24,7 @@ module Sinatra
           remove_list = lambda do
             bparams = JSON.parse(request.body.read)
             userId = bparams['userId']
-            parkId = bParams['parkId']
+            parkId = bparams['parkId']
             if userId != nil && parkId != nil then
               UserList.where(:user_id => userId, :park_id => parkId).delete
               return 'success'
