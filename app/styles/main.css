@@ -99,6 +99,9 @@ body {
       font-size: 16px;
       color: #666;
       border-left: 10px solid #5ea845;
+      border-right: 1px solid #5ea845;
+      border-top: 1px solid #5ea845;
+      border-bottom: 1px solid #5ea845;
       border-radius: 5px;
       margin-bottom: 20px; }
       .resultsView .listResults .listResultObject h2 {
