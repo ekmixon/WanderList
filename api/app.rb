@@ -11,7 +11,7 @@ class SimpleApp < Sinatra::Base
   enable :logging
 
   # produces a log file and a pipe to stdout
-  file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
+  file = File.new("log/#{settings.environment}.log", 'a+')
   file.sync = true
 
   configure do
@@ -23,7 +23,8 @@ class SimpleApp < Sinatra::Base
   register Sinatra::SampleApp::Routing::WanderList
 
   before do
-    enable_global_headers
+    content_type :json
+    response.headers['Access-Control-Allow-Origin'] = '*'
   end
 
   options '/*' do
