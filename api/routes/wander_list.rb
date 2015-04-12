@@ -14,7 +14,7 @@ module Sinatra
             parkId = bparams['parkId']
             
             if userId != nil && parkId != nil then
-              UserList.new({:user_id => userId, parkId => '1234'}).insert
+              UserList.new({:user_id => userId, :parkId => parkId}).insert
               return 'success'
             else
               return 'failure'
