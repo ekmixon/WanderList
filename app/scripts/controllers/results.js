@@ -52,7 +52,6 @@ angular.module('myAmericaApp')
           $rootScope.$broadcast('parkSaved');
           console.log('sending to api');
           UserList.create({userId: $rootScope.email, "parkId": parkId}, function(results){
-            console.log(results);
           });
 
         };
@@ -103,7 +102,6 @@ angular.module('myAmericaApp')
 
           console.log('sending to api');
           UserList.create({userId: $rootScope.email, "parkId": parkId}, function(results){
-            console.log(results);
           });
 
         };
