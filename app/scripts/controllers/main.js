@@ -198,14 +198,13 @@ angular.module('myAmericaApp')
 		'Out of state': false
 	};
 
-	$scope.submitButtonClass = 'inactive';
-
 	$scope.thirdOptions = ['Up to 50 miles', 'Up to 100 miles', 'More than 100 miles'];
 
 	$scope.activeChoice = [];
 	$scope.nearMe = false;
 	$scope.elsewhere = false;
 
+	$scope.submitButtonClass = 'inactive, disabled';
     $scope.lat = 37.431573;
     $scope.lng = -78.656894;
     $scope.interests = {
@@ -322,11 +321,9 @@ angular.module('myAmericaApp')
 
     $scope.checkChange = function checkChange(status, interest){
       $scope.interests[interest] = status;
-      console.log($scope.interests);
     };
 
     RecAreas.get({"apikey": RIDB_API_KEY}, function(activities) {
-      console.log(activities);
       $scope.activities = activities;
     });
 

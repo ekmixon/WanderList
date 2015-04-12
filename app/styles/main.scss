@@ -189,9 +189,18 @@ body {
 	padding: 0;
 	max-height: 800px;
 
-	.sidebar, .listResults, #mapResults {
-		height: 800px;
-		overflow: scroll;
+	@media (min-width: 768px) {
+		.sidebar, .listResults, #mapResults {
+			height: 800px;
+			overflow: scroll;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.sidebar, .listResults, #mapResults {
+			min-height: 300px;
+			overflow: scroll;
+		}
 	}
 
 	.sidebar {
@@ -209,6 +218,9 @@ body {
 			font-size: 16px;
 			color: $header-color;
 			border-left: 10px solid $secondary-color;
+			border-right: 1px solid $secondary-color;
+			border-top: 1px solid $secondary-color;
+			border-bottom: 1px solid $secondary-color;
 			border-radius: 5px;
 			margin-bottom: 20px;
 
@@ -234,6 +246,10 @@ body {
 				background-color: $primary-color;
 			}
 		}
+	}
+
+	.modal-content {
+		border-left: 10px solid $primary-color;
 	}
 
 	.mapResults {

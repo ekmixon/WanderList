@@ -6,6 +6,6 @@ class Recommendation
 
   field :'userId', as: :user_id, type: String
   field :'parkId', as: :park_id, type: String
-  field :'priority', as: :priority, type: Integer
+  field :'priority', as: :priority, type: Integer, default: 0
 
 end

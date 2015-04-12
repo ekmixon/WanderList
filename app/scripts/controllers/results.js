@@ -11,8 +11,6 @@ angular.module('myAmericaApp')
   .controller('ResultsCtrl', function ($scope, $rootScope, RecAreas, RIDB_API_KEY, Flickr,UserList) {
     $rootScope.temp = [];
     $scope.$on('questionsAnswered', function(event, args) {
-      console.log('caught broadcast');
-	  console.log($scope);
       $scope.age = args["answer1"];
       $scope.lengthOfStay = args["answer2"];
       $scope.interests = args["interests"];
@@ -29,17 +27,11 @@ angular.module('myAmericaApp')
           $scope.results = results;
         });
       }
-
-
       // do what you want to do
     });
 
-
     if($rootScope.state){
       RecAreas.get({"apikey": RIDB_API_KEY, "state": $rootScope.state, "activity" : $rootScope.activitiesSelected.toString()}, function(results) {
-        console.log(results);
-        console.log(results['RECDATA']);
-
         var map = L.map('mapResults').setView([$scope.lat, $scope.lng], 10);
 
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -57,7 +49,6 @@ angular.module('myAmericaApp')
         };
 
         $(results['RECDATA']).each(function(i, v){
-          console.log(v);
           var title = v.RecAreaName;
           var contactEmail = v.RecAreaEmail;
           var contactPhone = v.RecAreaPhone;

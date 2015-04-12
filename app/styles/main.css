@@ -84,9 +84,14 @@ body {
 .resultsView {
   padding: 0;
   max-height: 800px; }
-  .resultsView .sidebar, .resultsView .listResults, .resultsView #mapResults {
-    height: 800px;
-    overflow: scroll; }
+  @media (min-width: 768px) {
+    .resultsView .sidebar, .resultsView .listResults, .resultsView #mapResults {
+      height: 800px;
+      overflow: scroll; } }
+  @media (max-width: 767px) {
+    .resultsView .sidebar, .resultsView .listResults, .resultsView #mapResults {
+      min-height: 300px;
+      overflow: scroll; } }
   .resultsView .sidebar {
     background-color: #666;
     color: #FFF;
@@ -99,6 +104,9 @@ body {
       font-size: 16px;
       color: #666;
       border-left: 10px solid #5ea845;
+      border-right: 1px solid #5ea845;
+      border-top: 1px solid #5ea845;
+      border-bottom: 1px solid #5ea845;
       border-radius: 5px;
       margin-bottom: 20px; }
       .resultsView .listResults .listResultObject h2 {
@@ -113,6 +121,8 @@ body {
         background-color: #5ea845; }
       .resultsView .listResults .listResultObject .saveButton {
         background-color: #1d7dc1; }
+  .resultsView .modal-content {
+    border-left: 10px solid #1d7dc1; }
   .resultsView .mapResults {
     padding: 20px; }
 
