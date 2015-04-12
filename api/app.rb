@@ -1,5 +1,5 @@
 require 'sinatra/base'
-
+require 'mongoid'
 require_relative 'routes/wander_list'
 
 

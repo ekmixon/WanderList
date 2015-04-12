@@ -44,6 +44,7 @@ module Sinatra
           app.get '/userList/fetch/:userId', &fetch_list
 
         end
+        
       end
     end
   end
