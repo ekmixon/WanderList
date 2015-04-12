@@ -8,7 +8,7 @@ These instructions assume that your environment has ruby installed (for the Comp
 
 1.) Install Node Version Manager
 
-Visit https://github.com/creationix/nvm page.
+Visit https://github.com/creationix/nvm site for the latest instructions.
 
 ``` bash
 curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
