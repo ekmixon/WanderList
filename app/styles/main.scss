@@ -116,7 +116,7 @@ body {
 		margin-top: 15px;
 
 		input {
-			padding: 1px 10px;
+			padding: 1px 5px;
 			font-size: 16px;
 			width: 100%;
 		}
@@ -261,6 +261,10 @@ body {
 
 			.saveButton {
 				background-color: $primary-color;
+			}
+
+			.deleteButton {
+				background-color: $red-color;
 			}
 		}
 	}

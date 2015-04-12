@@ -1,20 +1,19 @@
 <div class="container-fluid resultsView">
-    <div class="col-sm-12 col-lg-2 sidebar">
-        Your List
-    </div>
-
-    <div class="col-sm-12 col-lg-5 listResults">
+	<div class="col-sm-12 pageTitle">
+		<h1>Your WanderList</h1>
+	</div>
+    <div class="col-sm-12 col-lg-6 listResults">
         <div class="col-sm-12 listResultObject" ng-repeat="park in userList">
             <h2>{{park.RecAreaName}}</h2>
             <p id="{{park.RecAreaID}}" class="collapse">{{park.RecAreaDescription}}</p>
             <div class="buttonHolder">
                 <button data-toggle="collapse" data-target="#{{park.RecAreaID}}" class="btn detailsButton">Details</button>
-                <button ng-click="removePark(park.RecAreaID)" class="btn saveButton pull-right">Remove</button>
+                <button ng-click="removePark(park.RecAreaID)" class="btn saveButton deleteButton pull-right">Remove</button>
             </div>
         </div>
     </div>
 
-    <div class="col-sm-12 col-lg-5" id="mapResults">
+    <div class="col-sm-12 col-lg-6" id="mapResults">
 
     </div>
 </div>

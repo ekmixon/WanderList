@@ -39,7 +39,7 @@ body {
     border-radius: 5px;
     margin-top: 15px; }
     .questionsHolder .mainPageRow input {
-      padding: 1px 10px;
+      padding: 1px 5px;
       font-size: 16px;
       width: 100%; }
     .questionsHolder .mainPageRow p {
@@ -132,6 +132,8 @@ body {
         background-color: #5ea845; }
       .resultsView .listResults .listResultObject .saveButton {
         background-color: #1d7dc1; }
+      .resultsView .listResults .listResultObject .deleteButton {
+        background-color: #EF492C; }
   .resultsView .modal-content {
     border-left: 10px solid #1d7dc1; }
   .resultsView .mapResults {
