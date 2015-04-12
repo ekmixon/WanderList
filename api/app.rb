@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-require_relative 'routes/questions'
+require_relative 'routes/wander_list'
 
 
 class SimpleApp < Sinatra::Base
@@ -16,11 +16,11 @@ class SimpleApp < Sinatra::Base
 
   configure do
     use Rack::CommonLogger, file
-    # Mongoid.load!("./mongoid.yml")
-    # require 'mongoid'
+    Mongoid.load!("./mongoid.yml")
+    require 'mongoid'
   end
 
-  register Sinatra::SampleApp::Routing::Questions
+  register Sinatra::SampleApp::Routing::WanderList
 
   before do
     enable_global_headers

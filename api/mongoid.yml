@@ -3,9 +3,9 @@ development:
     default:
       database: mydb
       hosts:
-        - 52.0.189.54:27017
-      username: appUser
-      password: P@$$1234
+        - 52.4.251.23:8081
+      username: myDbAdmin
+      password: adminpass
 production:
   sessions:
     default:
