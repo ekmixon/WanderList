@@ -63,9 +63,9 @@ angular.module('myAmericaApp')
             popUpText = popUpText + "<p>" + contactPhone + "</p>";
           }
 
-          v.photoQuery("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG("+v.RecAreaLatitude+","+ v.RecAreaLongitude+"), 50000))");
-          v.photoData = Flickr.get({key:"AIzaSyAY3kjup98kSZ5OQ4iaxFRxWqwvtLLXfPM", sql: v.photoQuery}, function(results){
-
+          v.photoQuery = ("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG("+v.RecAreaLatitude+","+ v.RecAreaLongitude+"), 50000))");
+          Flickr.get({key:"AIzaSyAY3kjup98kSZ5OQ4iaxFRxWqwvtLLXfPM", sql: v.photoQuery}, function(results){
+            console.log(v.photoData);
           });
 
           L.marker([v.RecAreaLatitude, v.RecAreaLongitude]).addTo(map)
@@ -98,7 +98,7 @@ angular.module('myAmericaApp')
         };
 
         $(results['RECDATA']).each(function(i, v){
-          console.log(v);
+          //console.log(v);
           var title = v.RecAreaName;
           var contactEmail = v.RecAreaEmail;
           var contactPhone = v.RecAreaPhone;
@@ -112,9 +112,12 @@ angular.module('myAmericaApp')
           if (contactPhone != ""){
             popUpText = popUpText + "<p>" + contactPhone + "</p>";
           }
-          //SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG(38.891359,-77.044251), 10000))
-          console.log("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG("+v.RecAreaLatitude+","+ v.RecAreaLongitude+"), 50000))");
 
+          v.photoQuery = ("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG("+v.RecAreaLatitude+","+ v.RecAreaLongitude+"), 50000))");
+          Flickr.get({key:"AIzaSyAY3kjup98kSZ5OQ4iaxFRxWqwvtLLXfPM", sql: v.photoQuery}, function(results){
+            console.log(JSON.parse(results.rows[0][0]));
+            v.photoData = JSON.parse(results.rows[0][0]);
+          });
           L.marker([v.RecAreaLatitude, v.RecAreaLongitude]).addTo(map)
             .bindPopup(popUpText)
             .openPopup();
