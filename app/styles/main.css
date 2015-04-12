@@ -114,7 +114,8 @@ body {
       border-radius: 5px;
       margin-bottom: 20px; }
       .resultsView .listResults .listResultObject h2 {
-        margin-top: 0px; }
+        margin-top: 0px;
+        font-size: 24px; }
       .resultsView .listResults .listResultObject p {
         font-size: 12px; }
       .resultsView .listResults .listResultObject .detailsButton, .resultsView .listResults .listResultObject .saveButton {
