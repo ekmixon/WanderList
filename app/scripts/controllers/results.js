@@ -8,7 +8,7 @@
  * Controller of the myAmericaApp
  */
 angular.module('myAmericaApp')
-  .controller('ResultsCtrl', function ($scope, $rootScope, RecAreas, RIDB_API_KEY) {
+  .controller('ResultsCtrl', function ($scope, $rootScope, RecAreas, RIDB_API_KEY, Flickr,UserList) {
     $rootScope.temp = [];
     $scope.$on('questionsAnswered', function(event, args) {
       console.log('caught broadcast');
@@ -45,10 +45,15 @@ angular.module('myAmericaApp')
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
+
         $scope.savePark = function savePark(parkId) {
           console.log(parkId);
           $rootScope.temp.push(parkId);
           $rootScope.$broadcast('parkSaved');
+          console.log('sending to api');
+          UserList.create({userId: $rootScope.email, "parkId": parkId}, function(results){
+            console.log(results);
+          });
 
         };
 
@@ -67,6 +72,11 @@ angular.module('myAmericaApp')
           if (contactPhone != ""){
             popUpText = popUpText + "<p>" + contactPhone + "</p>";
           }
+
+          v.photoQuery("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG("+v.RecAreaLatitude+","+ v.RecAreaLongitude+"), 50000))");
+          v.photoData = Flickr.get({key:"AIzaSyAY3kjup98kSZ5OQ4iaxFRxWqwvtLLXfPM", sql: v.photoQuery}, function(results){
+
+          });
 
           L.marker([v.RecAreaLatitude, v.RecAreaLongitude]).addTo(map)
             .bindPopup(popUpText)
@@ -91,6 +101,11 @@ angular.module('myAmericaApp')
           $rootScope.temp.push(parkId);
           $rootScope.$broadcast('parkSaved');
 
+          console.log('sending to api');
+          UserList.create({userId: $rootScope.email, "parkId": parkId}, function(results){
+            console.log(results);
+          });
+
         };
 
         $(results['RECDATA']).each(function(i, v){
@@ -108,6 +123,8 @@ angular.module('myAmericaApp')
           if (contactPhone != ""){
             popUpText = popUpText + "<p>" + contactPhone + "</p>";
           }
+          //SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG(38.891359,-77.044251), 10000))
+          console.log("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG("+v.RecAreaLatitude+","+ v.RecAreaLongitude+"), 50000))");
 
           L.marker([v.RecAreaLatitude, v.RecAreaLongitude]).addTo(map)
             .bindPopup(popUpText)
@@ -115,6 +132,7 @@ angular.module('myAmericaApp')
         });
 
         $scope.results = results;
+
       });
     }
 

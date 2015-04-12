@@ -77,6 +77,7 @@ angular.module('myAmericaApp')
     };
 
     $scope.goToResults = function goToResults(){
+      $rootScope.email = $scope.email;
 
       for (var i = 0; i < $scope.interestsList.length; i++) {
 
