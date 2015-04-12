@@ -38,6 +38,10 @@ body {
     border-left: 10px solid #5ea845;
     border-radius: 5px;
     margin-top: 15px; }
+    .questionsHolder .mainPageRow input {
+      padding: 1px 10px;
+      font-size: 16px;
+      width: 100%; }
     .questionsHolder .mainPageRow p {
       margin-bottom: 0; }
     .questionsHolder .mainPageRow .secondOptions li {

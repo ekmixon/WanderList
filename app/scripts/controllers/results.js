@@ -63,10 +63,10 @@ angular.module('myAmericaApp')
 				popUpText = popUpText + "<p>" + contactPhone + "</p>";
 			  }
 
-          v.photoQuery = ("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG("+v.RecAreaLatitude+","+ v.RecAreaLongitude+"), 50000))");
-          Flickr.get({key:"AIzaSyAY3kjup98kSZ5OQ4iaxFRxWqwvtLLXfPM", sql: v.photoQuery}, function(results){
-            console.log(v.photoData);
-          });
+			  v.photoQuery = ("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG("+v.RecAreaLatitude+","+ v.RecAreaLongitude+"), 50000))");
+			  Flickr.get({key:"AIzaSyAY3kjup98kSZ5OQ4iaxFRxWqwvtLLXfPM", sql: v.photoQuery}, function(results){
+				console.log(v.photoData);
+			  });
 
 			  L.marker([v.RecAreaLatitude, v.RecAreaLongitude]).addTo(map)
 				.bindPopup(popUpText)
