@@ -248,6 +248,10 @@ body {
 		}
 	}
 
+	.modal-content {
+		border-left: 10px solid $primary-color;
+	}
+
 	.mapResults {
 		padding: 20px;
 	}

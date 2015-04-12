@@ -121,6 +121,8 @@ body {
         background-color: #5ea845; }
       .resultsView .listResults .listResultObject .saveButton {
         background-color: #1d7dc1; }
+  .resultsView .modal-content {
+    border-left: 10px solid #1d7dc1; }
   .resultsView .mapResults {
     padding: 20px; }
 
