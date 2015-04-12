@@ -6,5 +6,6 @@ class UserList
 
   field :'userId', as: :user_id, type: String
   field :'parkId', as: :park_id, type: String
+  field :'completed', as: :completed, type: String, default: 'N'
 
 end
