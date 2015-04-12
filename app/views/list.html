@@ -9,7 +9,7 @@
             <p id="{{park.RecAreaID}}" class="collapse">{{park.RecAreaDescription}}</p>
             <div class="buttonHolder">
                 <button data-toggle="collapse" data-target="#{{park.RecAreaID}}" class="btn detailsButton">Details</button>
-                <button class="btn saveButton pull-right">Save</button>
+                <button ng-click="removePark(park.RecAreaID)" class="btn saveButton pull-right">Remove</button>
             </div>
         </div>
     </div>

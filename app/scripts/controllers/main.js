@@ -204,7 +204,7 @@ angular.module('myAmericaApp')
 	$scope.nearMe = false;
 	$scope.elsewhere = false;
 
-	$scope.submitButtonClass = 'inactive';
+	$scope.submitButtonClass = 'inactive, disabled';
     $scope.lat = 37.431573;
     $scope.lng = -78.656894;
     $scope.interests = {
@@ -278,6 +278,7 @@ angular.module('myAmericaApp')
 	};
 
     $scope.goToResults = function goToResults(){
+      $rootScope.email = $scope.email;
 
       for (var i = 0; i < $scope.interestsList.length; i++) {
 
