@@ -189,9 +189,18 @@ body {
 	padding: 0;
 	max-height: 800px;
 
-	.sidebar, .listResults, #mapResults {
-		height: 800px;
-		overflow: scroll;
+	@media (min-width: 768px) {
+		.sidebar, .listResults, #mapResults {
+			height: 800px;
+			overflow: scroll;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.sidebar, .listResults, #mapResults {
+			min-height: 300px;
+			overflow: scroll;
+		}
 	}
 
 	.sidebar {

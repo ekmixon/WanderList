@@ -30,7 +30,6 @@ angular.module('myAmericaApp')
       // do what you want to do
     });
 
-
     if($rootScope.state){
       RecAreas.get({"apikey": RIDB_API_KEY, "state": $rootScope.state, "activity" : $rootScope.activitiesSelected.toString()}, function(results) {
         var map = L.map('mapResults').setView([$scope.lat, $scope.lng], 10);
