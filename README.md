@@ -53,7 +53,7 @@ grunt serve
 
 1.) If you are having problems running bower install, check to make sure the git protocol is not blocked by your firewall.  To configure the default to use https instead of the git protocol, use the following commands:
 
-To change set https as default:
+To set https as default:
 ``` bash
 git config --global url."https://".insteadOf git://
 ```
