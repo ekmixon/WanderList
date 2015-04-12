@@ -64,7 +64,7 @@ module Sinatra
           
           fetch_list = lambda do
             userId = params['userId']
-            return  {"results" => UserList.only(:user_id, :park_id).where(:user_id => userId).to_a}.to_json
+            return  {"results" => UserList.only(:user_id, :park_id, :completed).where(:user_id => userId).to_a}.to_json
           end
           
           fetch_all = lambda do
