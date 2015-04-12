@@ -36,12 +36,12 @@ module Sinatra
           
           fetch_list = lambda do
             userId = params['userId']
-            return UserList.where(:user_id => userId).to_a.to_json
+            return UserList.only(:user_id, :park_id).where(:user_id => userId).to_a.to_json
           end
           
           fetch_all = lambda do
             userId = params['userId']
-            return UserList.all.to_a.to_json
+            return UserList.only(:user_id, :park_id).all.to_a.to_json
           end
           
           
