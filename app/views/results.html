@@ -1,9 +1,8 @@
 <div class="container-fluid resultsView">
-	<div class="col-sm-12 col-lg-2 sidebar">
-		Filters
+	<div class="col-sm-12 pageTitle">
+		<h1>Recommendation Results</h1>
 	</div>
-
-	<div class="col-sm-12 col-lg-5 listResults">
+	<div class="col-sm-12 col-lg-6 listResults">
 		<div class="col-sm-12 listResultObject" ng-repeat="result in results.RECDATA">
 			<h2>{{result.RecAreaName}}</h2>
 			<p id="{{result.RecAreaID}}" class="collapse">{{result.RecAreaDescription}}</p>
@@ -36,7 +35,7 @@
 		</div>
 	</div>
 
-	<div class="col-sm-12 col-lg-5" id="mapResults">
+	<div class="col-sm-12 col-lg-6" id="mapResults">
 
 	</div>
 </div>

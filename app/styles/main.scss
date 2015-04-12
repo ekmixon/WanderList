@@ -183,7 +183,7 @@ body {
 			padding: 10px 15px;
 		}
 
-		.active, .active:hover, .inactive:focus {
+		.active, .active:hover, .active:focus {
 			background-color: $primary-color;
 			color: $white;
 			padding: 10px 15px;
@@ -206,6 +206,16 @@ body {
 		.sidebar, .listResults, #mapResults {
 			min-height: 300px;
 			overflow: scroll;
+		}
+	}
+
+	.pageTitle {
+		text-align: center;
+		background-color: $secondary-color;
+		color: $white;
+
+		h1 {
+			margin-bottom: 20px;
 		}
 	}
 
