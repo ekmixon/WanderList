@@ -1,4 +1,4 @@
-# WanderList
+nderList
 
 Wanderlist is a bucket list app that allows you to search, create, and share your own curated lists that highlight your favorite parks.
 
@@ -71,6 +71,9 @@ git config --global --unset
 * Clean your npm cache with → sudo npm cache clean
 * Reinstall with super user privileges → sudo npm install
 
+3.) We utilized the awesome work of the Stamen caliparks.org folks and their node harvester git branch to gather Flickr pictures of parks. Check it out here: https://github.com/stamen/caliparks.org/tree/node-harvester
+
 ##License
 
 Add the open source license here.
+
