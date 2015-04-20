@@ -120,10 +120,18 @@ angular.module('myAmericaApp')
 			var photoQuery = ("SELECT  metadata FROM 1zi67I9StNeOzf5qv-wQ6WfR3n0ok_hDm6fSy0kI1 WHERE ST_INTERSECTS(geometry, CIRCLE(LATLNG(" + lat + "," + lng + "), 50000))");
 			console.log(photoQuery);
 			Flickr.get({key: "AIzaSyAY3kjup98kSZ5OQ4iaxFRxWqwvtLLXfPM", sql: photoQuery}, function (results) {
-				var photoData = JSON.parse(results.rows[0][0]).url_m;
-				console.log(photoData + " at " + parkId);
-				$scope.pictures.push(photoData);
-				console.log($scope.pictures);
+				if(results.rows[0][0].url_m){
+					var photoData = JSON.parse(results.rows[0][0]).url_m;
+					console.log(photoData + " at " + parkId);
+					$scope.pictures.push(photoData);
+					console.log($scope.pictures);
+				}
+				else if(results.rows[0][0].url_l){
+					var photoData = JSON.parse(results.rows[0][0]).url_l;
+					console.log(photoData + " at " + parkId);
+					$scope.pictures.push(photoData);
+					console.log($scope.pictures);
+				}
 			});
 
 			$scope.i++;
