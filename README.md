@@ -44,7 +44,9 @@ npm install
 bower install
 ```
 
-7.) Start the grunt server.  By default, the site will be hosted on http://0.0.0.0:9000/
+7.) Edit the /app/app.js file to include your RIDB Api Key
+
+8.) Start the grunt server.  By default, the site will be hosted on http://0.0.0.0:9000/
 ``` bash
 grunt serve
 ```
