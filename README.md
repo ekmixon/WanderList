@@ -1,4 +1,4 @@
-nderList
+WanderList
 
 Wanderlist is a bucket list app that allows you to search, create, and share your own curated lists that highlight your favorite parks.
 
