@@ -3,9 +3,9 @@ development:
     default:
       database: mydb
       hosts:
-        - 52.4.251.23:8081
-      username: myDbAdmin
-      password: adminpass
+        - [DB host]:[DB port]
+      username: [DB username]
+      password: [DB password]
 production:
   sessions:
     default:
